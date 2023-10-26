@@ -39,6 +39,45 @@ namespace Xipe_Conexion
         }
     }
 
+    
+    public class SQLDatabase : IDatabase
+    {
+        public void OpenConexion()
+        {
+            Console.WriteLine("Connection to SQL open");
+        }
+
+        public void WriteConexion(string message)
+        {
+            Console.WriteLine($"Connection in SQL: {message}");
+        }
+
+        public string Read()
+        {
+            Console.WriteLine("Reading of SQL");
+            return "Data of SQL";
+        }
+
+        public void CloseConexion()
+        {
+            Console.WriteLine("Connection to SQL closed");
+        }
+    }
+    public class DatabaseFactory
+    {
+        public static IDatabase CreateDatabase(string databaseType)
+        {
+            switch (databaseType)
+            {
+                case "MySQL":
+                    return new MySQLDatabase();
+                case "SQL":
+                    return new SQLDatabase();
+                default:
+                    throw new ArgumentException("Type database not valid");
+            }
+        }
+    }
 
     class Program
     {
