@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Xipe_Conexion
@@ -90,9 +91,13 @@ namespace Xipe_Conexion
 
 
             database.OpenConexion();
+            Thread.Sleep(5000);
             database.WriteConexion("Test data");
+            Thread.Sleep(5000);
             string data = database.Read();
+            Thread.Sleep(5000);
             Console.WriteLine($"data read: {data}");
+            Thread.Sleep(5000);
             database.CloseConexion();
         }
     }
