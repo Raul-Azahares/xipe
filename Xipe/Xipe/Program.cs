@@ -10,58 +10,57 @@ namespace Xipe
     {
         static void Main(string[] args)
         {
-            List<Entidad> lista1 = new List<Entidad>
+            List<Entity> List1 = new List<Entity>
         {
-            new Entidad { Nombre = "Proceso1", Id = 1, TiempoProceso = 3 },
-            new Entidad { Nombre = "Proceso2", Id = 2, TiempoProceso = 2 },
-            new Entidad { Nombre = "Proceso3", Id = 3, TiempoProceso = 4 },
-            new Entidad { Nombre = "Proceso4", Id = 4, TiempoProceso = 3 },
-            new Entidad { Nombre = "Proceso5", Id = 5, TiempoProceso = 5 }
+            new Entity { Name = "Process1", Id = 1, TimeProcess = 3 },
+            new Entity { Name = "Process2", Id = 2, TimeProcess = 2 },
+            new Entity { Name = "Process3", Id = 3, TimeProcess = 4 },
+            new Entity { Name = "Process4", Id = 4, TimeProcess = 3 },
+            new Entity { Name = "Process5", Id = 5, TimeProcess = 5 }
         };
 
-            List<Entidad> lista2 = new List<Entidad>
+            List<Entity> List2 = new List<Entity>
         {
-            new Entidad { Nombre = "Proceso3", Id = 3, TiempoProceso = 4 },
-            new Entidad { Nombre = "Proceso4", Id = 4, TiempoProceso = 3 },
-            new Entidad { Nombre = "Proceso6", Id = 6, TiempoProceso = 2 },
-            new Entidad { Nombre = "Proceso7", Id = 7, TiempoProceso = 6 },
-            new Entidad { Nombre = "Proceso8", Id = 8, TiempoProceso = 2 }
+            new Entity { Name = "Proces3", Id = 3, TimeProcess = 4 },
+            new Entity { Name = "Proces4", Id = 4, TimeProcess = 3 },
+            new Entity { Name = "Proces6", Id = 6, TimeProcess = 2 },
+            new Entity { Name = "Proces7", Id = 7, TimeProcess = 6 },
+            new Entity { Name = "Proces8", Id = 8, TimeProcess = 2 }
         };
-
-            // Combinar y eliminar repetidos
-            List<Entidad> listaLimpia = lista1.Union(lista2).Distinct(new EntidadComparer()).ToList();
+            // Merge and remove repeats
+            List<Entity> CleanList = List1.Union(List2).Distinct(new EntityComparer()).ToList();
 
             // Correr los procesos en simultáneo
-            var tasks = listaLimpia.Select(entidad => entidad.Correr()).ToArray();
+            var tasks = CleanList.Select(Entity => Entity.Correr()).ToArray();
 
             Task.WhenAll(tasks).Wait();
         }
     }
 
 
-    class Entidad
+    class Entity
     {
-        public string Nombre { get; set; }
+        public string Name { get; set; }
         public int Id { get; set; }
-        public int TiempoProceso { get; set; }
+        public int TimeProcess { get; set; }
 
         public async Task Correr()
         {
-            Console.WriteLine($"El proceso {Nombre} con ID {Id} ha iniciado.");
-            await Task.Delay(TiempoProceso * 1000); // Espera en milisegundos
-            Console.WriteLine($"El proceso {Nombre} con ID {Id} ha finalizado.");
+            Console.WriteLine($"The process {Name} with ID {Id} has started.");
+            await Task.Delay(TimeProcess * 1000); // Wait 
+            Console.WriteLine($"The process {Name} with ID {Id} has finished.");
         }
     }
-    class EntidadComparer : IEqualityComparer<Entidad>
+    class EntityComparer : IEqualityComparer<Entity>
     {
-        public bool Equals(Entidad x, Entidad y)
+        public bool Equals(Entity x, Entity y)
         {
-            return x.Nombre == y.Nombre && x.Id == y.Id;
+            return x.Name == y.Name && x.Id == y.Id;
         }
 
-        public int GetHashCode(Entidad obj)
+        public int GetHashCode(Entity obj)
         {
-            return obj.Nombre.GetHashCode() ^ obj.Id.GetHashCode();
+            return obj.Name.GetHashCode() ^ obj.Id.GetHashCode();
         }
     }
 }

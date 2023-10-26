@@ -5,3 +5,10 @@ C:\Users\araul\source\repos\Xipe\Xipe\obj\Debug\Xipe.csproj.AssemblyReference.ca
 C:\Users\araul\source\repos\Xipe\Xipe\obj\Debug\Xipe.csproj.CoreCompileInputs.cache
 C:\Users\araul\source\repos\Xipe\Xipe\obj\Debug\Xipe.exe
 C:\Users\araul\source\repos\Xipe\Xipe\obj\Debug\Xipe.pdb
+C:\Users\araul\OneDrive\Escritorio\Prueba\xipe\Xipe\Xipe\bin\Debug\Xipe.exe.config
+C:\Users\araul\OneDrive\Escritorio\Prueba\xipe\Xipe\Xipe\bin\Debug\Xipe.exe
+C:\Users\araul\OneDrive\Escritorio\Prueba\xipe\Xipe\Xipe\bin\Debug\Xipe.pdb
+C:\Users\araul\OneDrive\Escritorio\Prueba\xipe\Xipe\Xipe\obj\Debug\Xipe.csproj.AssemblyReference.cache
+C:\Users\araul\OneDrive\Escritorio\Prueba\xipe\Xipe\Xipe\obj\Debug\Xipe.csproj.CoreCompileInputs.cache
+C:\Users\araul\OneDrive\Escritorio\Prueba\xipe\Xipe\Xipe\obj\Debug\Xipe.exe
+C:\Users\araul\OneDrive\Escritorio\Prueba\xipe\Xipe\Xipe\obj\Debug\Xipe.pdb
