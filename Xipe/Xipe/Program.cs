@@ -31,7 +31,7 @@ namespace Xipe
             List<Entity> CleanList = List1.Union(List2).Distinct(new EntityComparer()).ToList();
 
             // Correr los procesos en simultáneo
-            var tasks = CleanList.Select(Entity => Entity.Correr()).ToArray();
+            var tasks = CleanList.Select(Entity => Entity.Run()).ToArray();
 
             Task.WhenAll(tasks).Wait();
         }
@@ -44,7 +44,7 @@ namespace Xipe
         public int Id { get; set; }
         public int TimeProcess { get; set; }
 
-        public async Task Correr()
+        public async Task Run()
         {
             Console.WriteLine($"The process {Name} with ID {Id} has started.");
             await Task.Delay(TimeProcess * 1000); // Wait 
