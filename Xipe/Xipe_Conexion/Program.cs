@@ -83,6 +83,17 @@ namespace Xipe_Conexion
     {
         static void Main(string[] args)
         {
+
+            string databaseType = "MySQL";
+
+            IDatabase database = DatabaseFactory.CreateDatabase(databaseType);
+
+
+            database.OpenConexion();
+            database.WriteConexion("Test data");
+            string data = database.Read();
+            Console.WriteLine($"data read: {data}");
+            database.CloseConexion();
         }
     }
 }
